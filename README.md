@@ -1,6 +1,6 @@
 Programming Curriculum
 
-Section 1:
+Section 1: Introduction to FRC Programming
 
 1.1: Introduction to Programming (done)
 
