@@ -22,6 +22,7 @@ public class Drive extends Subsystem {
   private TalonSRX m_rightMaster, m_rightSlave1, m_rightSlave2;
 
   public Drive() {
+    // Create TalonSRXs for the drivetrain, 3 on each side
     m_rightMaster = new TalonSRX(RobotMap.kRightMasterID);
     m_rightSlave1 = new TalonSRX(RobotMap.kRightSlave1ID);
     m_rightSlave2 = new TalonSRX(RobotMap.kRightSlave2ID);
@@ -29,12 +30,14 @@ public class Drive extends Subsystem {
     m_leftSlave1 = new TalonSRX(RobotMap.kLeftSlave1ID);
     m_leftSlave2 = new TalonSRX(RobotMap.kLeftSlave2ID);
     
+    // Make the slave motors follow the masters (the masters have the encoders)
     m_leftSlave1.follow(m_leftMaster);
     m_leftSlave2.follow(m_leftMaster);
 
     m_rightSlave1.follow(m_rightMaster);
     m_rightSlave2.follow(m_rightMaster);
 
+    //invert half the drivetrain so giving each motor a positive value moves the robot forwards
     m_rightMaster.setInverted(false);
     m_rightSlave1.setInverted(false);
     m_rightSlave2.setInverted(false);
@@ -45,12 +48,14 @@ public class Drive extends Subsystem {
   }
 
   public void setPower(double left, double right) {
+    // Set left and right motor powers
     m_rightMaster.set(ControlMode.PercentOutput, right);
     m_leftMaster.set(ControlMode.PercentOutput, left);
 
   }
   @Override
   public void initDefaultCommand() {
+    // Have the tank drive command run by defaul
     setDefaultCommand(new TankDrive());
   }
 }

@@ -12,7 +12,7 @@ import frc.robot.Robot;
 
 public class ManualArmControl extends Command {
   public ManualArmControl() {
-    requires(Robot.drive);
+    requires(Robot.arm);
   }
 
   // Called just before this Command runs the first time
@@ -23,6 +23,7 @@ public class ManualArmControl extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    // Sets the joystick value to the motor
     Robot.arm.setPower(Robot.oi.getArticY());
   }
 

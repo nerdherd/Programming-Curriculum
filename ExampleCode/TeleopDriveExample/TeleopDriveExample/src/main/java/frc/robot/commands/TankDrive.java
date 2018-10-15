@@ -23,6 +23,8 @@ public class TankDrive extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    // Set the left side of the drivetrain to the left joystick's y value 
+    // and the right side of the drivetrain to the right joystick y value
     Robot.drive.setPower(Robot.oi.getLeftY(), Robot.oi.getRightY());
   }
 

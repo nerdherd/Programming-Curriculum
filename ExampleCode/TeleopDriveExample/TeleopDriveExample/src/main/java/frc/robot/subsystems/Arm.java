@@ -22,16 +22,18 @@ public class Arm extends Subsystem {
   private TalonSRX m_arm;
 
   public Arm() {
+    // Create a new TalonSRX motor controller
     m_arm = new TalonSRX(RobotMap.kArmID);
     m_arm.setInverted(true);
   }
 
   public void setPower(double power) {
+    // set percent output to the motor
     m_arm.set(ControlMode.PercentOutput, power);
   }
   @Override
   public void initDefaultCommand() {
-    // Set the default command for a subsystem here.
+    //Runs the manual joystick control command by default when no other commands are running
     setDefaultCommand(new ManualArmControl());
   }
 }

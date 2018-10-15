@@ -18,6 +18,7 @@ public class OpenClaw extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    // opens claw
     Robot.claw.openClaw();
   }
 

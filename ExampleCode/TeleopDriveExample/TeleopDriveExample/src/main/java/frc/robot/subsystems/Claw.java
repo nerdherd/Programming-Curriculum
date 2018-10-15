@@ -20,14 +20,17 @@ public class Claw extends Subsystem {
   private DoubleSolenoid m_claw;
 
   public Claw() {
+    // Make new piston (Double Solenoid) 
     m_claw = new DoubleSolenoid(RobotMap.kClaw1ID, RobotMap.kClaw2ID);
   }
 
   public void openClaw() {
+    //Opens claw, if this function doesn't open the claw reverse the solenid ports
     m_claw.set(Value.kForward);
   }
 
   public void closeClaw() {
+     //Close claw, if this function doesn't close the claw reverse the solenid ports
     m_claw.set(Value.kReverse);
   }
   

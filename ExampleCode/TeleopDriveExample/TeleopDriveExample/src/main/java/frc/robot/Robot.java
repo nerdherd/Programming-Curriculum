@@ -35,6 +35,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotInit() {
+    // Create new instances of each subsystem
     arm = new Arm();
     drive = new Drive();
     claw = new Claw();
@@ -105,6 +106,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopPeriodic() {
+    // Allows commands to actually be run during teleop
     Scheduler.getInstance().run();
   }
 
